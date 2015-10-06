@@ -1,5 +1,4 @@
-from django.contrib.staticfiles.management.commands.collectstatic import Command\
-    as CollectStaticCommand
+from django.contrib.staticfiles.management.commands.collectstatic import Command as CollectStaticCommand
 
 from ._grunt import start_grunt as execute_grunt
 
