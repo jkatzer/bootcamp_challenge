@@ -1,6 +1,7 @@
 from django.db import models
+from django.utils.translation import gettext as _
 
-from .tools.basemodel.models import TimestampedModel
+from tools.basemodel.models import TimestampedModel
 
 
 class ForumBaseModel(TimestampedModel):
@@ -11,21 +12,22 @@ class ForumBaseModel(TimestampedModel):
 
 
 class Thread(ForumBaseModel):
-	"""
-	The Thread. Comments are associated through their own ForeignKey
-	"""
+    """
+    The Thread. Comments are associated through their own ForeignKey
+    """
     # base fields as described in the functional requirement doc
-    title = models.CharField( _('title'), max_length=255 )
-    description = models.TextField( _('description'), blank=True )
+    title = models.CharField( _('title'), max_length=255)
+    description = models.TextField( 'description', blank=True )
     # for nice url views and specifics
     slug = models.SlugField( _('slug') )
     # maybe implement functionality for admins?
-	thread_open = models.BooleanField(default=True) 
-	# proper display
-	def __str__(self):
+    thread_open = models.BooleanField(default=True)
+    
+    # proper thread display
+    def __str__(self):
 		return self.title
 	# just in case, with Python 2.x
-	def __unicode__(self):
+    def __unicode__(self):
 		return self.title
 
 

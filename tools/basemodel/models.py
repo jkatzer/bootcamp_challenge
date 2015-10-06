@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils.translation import gettext as _
+
+from .fields import CreationDateTimeField, ModificationDateTimeField
 
 
 class TimestampedModel(models.Model):
@@ -10,8 +13,8 @@ class TimestampedModel(models.Model):
     Formally known as TimeStampedModel by Django-Extensions:
     https://github.com/django-extensions/django-extensions/blob/master/django_extensions/db/models.py
     """
-    created = CreationDateTimeField(_('created'))
-    modified = ModificationDateTimeField(_('modified'))
+    created = CreationDateTimeField( _('created') )
+    modified = ModificationDateTimeField( _('modified') )
 
     class Meta:
         get_latest_by = 'modified'
