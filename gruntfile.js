@@ -9,57 +9,64 @@ module.exports = function(grunt) {
 
     jshint: {
       // define the files to lint
-      files: ['gruntfile.js', '/static/js/app/**/*.js', '/static/js/vendor/**/*.js'],
-    }
+      files: ['gruntfile.js', 'static/js/app/**/*.js', 'static/js/vendor/**/*.js'],
+    },
 
     uglify: {
-      dev {
+      dev: {
         options: {
           sourceMap: true
-        }
+        },
         files: {
-          '/static/js/app.min.js': ['myproject/static/js/app/**/*.js'],
-          '/static/js/lib.min.js': ['myproject/static/js/vendor/**/*.js']
+          'static/js/app.min.js': ['static/js/app/**/*.js'],
+          'static/js/lib.min.js': ['static/js/vendor/**/*.js']
         }
-      }
+      },
       // production config
-      production {
+      production: {
         files: {
-          '/static/js/app.min.js': ['myproject/static/js/app/**/*.js'],
-          '/static/js/lib.min.js': ['myproject/static/js/vendor/**/*.js']
+          'static/js/app.min.js': ['static/js/app/**/*.js'],
+          'static/js/lib.min.js': ['static/js/vendor/**/*.js']
         }
       }
-    }
+    },
 
     sass: {
       dev: {
         options: {
-          includePaths: ['/node_modules/bootstrap/css/'],
-          sourceMap: true
+          includePaths: ['node_modules/bootstrap/css/'],
+          sourceMap: true,
         },
-        src: [ '/static/css/scss/main.scss' ],
-        dest: '/static/css/main.css',
+        src: [ 'static/css/scss/main.scss' ],
+        dest: 'static/css/main.css',
       },
       production: {
         options: {
           outputStyle: 'compressed',
           sourceMap: false
         },
-        src: [ '/static/css/scss/main.scss' ],
-        dest: '/static/css/main.css',
+        src: [ 'static/css/scss/main.scss' ],
+        dest: 'static/css/main.css',
       }
     },
 
     watch: {
-      files: ['<%= sass.dev.files %>', '<%= jshint.files %>'],
-      tasks: ['jshint', 'uglify:dev', 'sass:dev']
-    }
+      js: {
+        files: ['gruntfile.js', 'static/js/app/**/*.js', 'static/js/vendor/**/*.js'],
+        tasks: ['jshint', 'uglify:dev']
+      },
+      css: {
+        files: ['static/css/scss/main.scss'],
+        tasks: ['sass:dev']
+      }
+    },
 
   // End config here
 
   });
 
   // Load plugins here.
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
@@ -67,6 +74,9 @@ module.exports = function(grunt) {
 
   // Register tasks here.
   grunt.registerTask('default', ['jshint', 'uglify:dev', 'sass:dev']);
-  grunt.registerTask('production', ['jshint', 'uglify:production', 'sass:production'])
+  grunt.registerTask('production', ['jshint', 'uglify:production', 'sass:production']);
+  //grunt.registerTask('watch', ['watch']);
+  grunt.registerTask('helloworld', 'Log some stuff.', function() {
+    grunt.log.write('hello world!').ok(); });
 
 };
