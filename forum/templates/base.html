@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" ng-app="forumFrontEnd">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Forum</title>
+  <meta name="description" content="Buzzfeed Bootcamp Forum">
+  <meta name="author" content="Alex Silverman">
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" src="{% static 'bootstrap/dist/css/bootstrap.min.css' %}"></script>
+  <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'angular/angular.js' %}"></script>
+  <script src="{% static 'angular-route/angular-route.js' %}"></script>
+  <script src="{% static 'angular-resource/angular-resource.js' %}"></script>
+  <script src="{% static 'js/app.min.js' %}"></script>
+  <script src="{% static 'js/vendor.min.js' %}"></script>
+</head>
+<body>
+
+  <div ng-view></div>
+
+</body>
+</html>
