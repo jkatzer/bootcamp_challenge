@@ -12,16 +12,14 @@ forumFrontEndControllers.controller('ThreadListCtrl', ['$scope', 'Thread',
     //     title: "Hello, World!",
     //     username: "that_guy",
     //   }
-    // ];
+  // ];
   }]);
 
-// phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-//   function($scope, $routeParams, Phone) {
-//     $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-//       $scope.mainImageUrl = phone.images[0];
-//     });
+forumFrontEndControllers.controller('ThreadDetailCtrl', ['$scope', '$routeParams', 'Thread',
+  function($scope, $routeParams, Thread) {
+    $scope.thread = Thread.query($routeParams.threadId);
 
-//     $scope.setImage = function(imageUrl) {
-//       $scope.mainImageUrl = imageUrl;
-//     };
-//   }]);
+    $scope.setImage = function(imageUrl) {
+      $scope.mainImageUrl = imageUrl;
+    };
+  }]);

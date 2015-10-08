@@ -26,7 +26,7 @@ class Thread(ForumBaseModel):
     title = models.CharField( _('title'), max_length=255)
     description = models.TextField( _('description'), blank=True )
     # for nice url views and specifics
-    slug = AutoSlugField( _('slug'), populate_from='title' )
+    slug = AutoSlugField( _('slug'), populate_from='title', primary_key=True )
     # maybe implement functionality for admins? 
     thread_open = models.BooleanField( _('open'), default=True)
     # other things for quicker viewing. They're nice to have! Comment in string because we haven't defined yet. Django helper

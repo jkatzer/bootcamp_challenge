@@ -1,25 +1,22 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
-
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-      </select>
-
-    </div>
-    <div class="col-md-10">
+    <div class="col-md-12">
       <!--Body content-->
 
-      <ul class="">
-        <li ng-repeat="thread in threads | filter:query | orderBy:orderProp"
-            class="thumbnail phone-listing">
-          
-          <h4>{{ thread.title }}</h4>
-          <p>{{ thread.username }}</p>
+      <ul class="threadlist">
+        <li ng-repeat="thread in threads.results">          
+          <div class="col-md-8 center row">
+            <div class="col-md-12">
+              <a href="#/threads/{{ thread.slug }}"><h2>{{ thread.title }}</h2></a>
+              <p>{{ thread.username }}</p>
+            </div>
+            <div class="col-md-6">
+            <span>Replies: {{ thread.num_replies }} </span>
+            </div>
+            <div class="col-md-6">
+            <span>Last Updated: {{ thread.modified | date }}</span>
+            </div>
+          </div>
         </li>
       </ul>
 

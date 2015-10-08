@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     sass: {
       dev: {
         options: {
-          includePaths: ['node_modules/bootstrap/css/'],
+          includePaths: ['node_modules/bootstrap/dist/css/'],
           sourceMap: true,
         },
         src: [ 'frontend/css/scss/main.scss' ],
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
         tasks: ['jshint', 'uglify:dev']
       },
       css: {
-        files: ['static/css/scss/main.scss'],
+        files: ['frontend/css/scss/main.scss'],
         tasks: ['sass:dev']
       }
     },
