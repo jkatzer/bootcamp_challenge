@@ -27,8 +27,12 @@ class Thread(ForumBaseModel):
     description = models.TextField( _('description'), blank=True )
     # for nice url views and specifics
     slug = AutoSlugField( _('slug'), populate_from='title' )
-    # maybe implement functionality for admins?
+    # maybe implement functionality for admins? 
     thread_open = models.BooleanField( _('open'), default=True)
+    # other things for quicker viewing. They're nice to have! Comment in string because we haven't defined yet. Django helper
+    last_comment = models.ForeignKey('Comment', related_name='last_comment')
+    num_replies = models.IntegerField(default=0)
+
 
     def get_comments(self):
     	return Comment.objects.filter(thread=self)

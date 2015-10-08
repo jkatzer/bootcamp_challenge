@@ -11,3 +11,10 @@ class ThreadSerializer(serializers.HyperlinkedModelSerializer):
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Comment
+
+	def create(data):
+		instance = super(CommentSerializer, self).create(**data)
+		instance.thread.last_comment = instance
+		instance.thread.num_replies += 1
+		instance.thread.save()
+		return instance
