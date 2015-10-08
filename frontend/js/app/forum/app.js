@@ -1,6 +1,7 @@
 var forumFrontEnd = angular.module('forumFrontEnd', [
   'ngRoute',
   'forumFrontEndControllers',
+  'forumFrontEndServices',
 
 ]);
 

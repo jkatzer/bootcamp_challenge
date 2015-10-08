@@ -30,7 +30,7 @@ class Thread(ForumBaseModel):
     # maybe implement functionality for admins? 
     thread_open = models.BooleanField( _('open'), default=True)
     # other things for quicker viewing. They're nice to have! Comment in string because we haven't defined yet. Django helper
-    last_comment = models.ForeignKey('Comment', related_name='last_comment')
+    last_comment = models.ForeignKey('Comment', related_name='last_comment', blank=True, default=None, null=True)
     num_replies = models.IntegerField(default=0)
 
 

@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 
     jshint: {
       // define the files to lint
-      files: ['gruntfile.js', 'static/js/app/**/*.js', 'static/js/vendor/**/*.js'],
+      files: ['gruntfile.js', 'frontend/js/app/**/*.js', 'frontend/js/vendor/**/*.js'],
     },
 
     uglify: {
@@ -18,15 +18,15 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         files: {
-          'static/js/app.min.js': ['static/js/app/**/*.js'],
-          'static/js/lib.min.js': ['static/js/vendor/**/*.js']
+          'frontend/js/app.min.js': ['frontend/js/app/**/*.js'],
+          'frontend/js/lib.min.js': ['frontend/js/vendor/**/*.js']
         }
       },
       // production config
       production: {
         files: {
-          'static/js/app.min.js': ['static/js/app/**/*.js'],
-          'static/js/lib.min.js': ['static/js/vendor/**/*.js']
+          'frontend/js/app.min.js': ['frontend/js/app/**/*.js'],
+          'frontend/js/lib.min.js': ['frontend/js/vendor/**/*.js']
         }
       }
     },
@@ -37,22 +37,22 @@ module.exports = function(grunt) {
           includePaths: ['node_modules/bootstrap/css/'],
           sourceMap: true,
         },
-        src: [ 'static/css/scss/main.scss' ],
-        dest: 'static/css/main.css',
+        src: [ 'frontend/css/scss/main.scss' ],
+        dest: 'frontend/css/main.css',
       },
       production: {
         options: {
           outputStyle: 'compressed',
           sourceMap: false
         },
-        src: [ 'static/css/scss/main.scss' ],
-        dest: 'static/css/main.css',
+        src: [ 'frontend/css/scss/main.scss' ],
+        dest: 'frontend/css/main.css',
       }
     },
 
     watch: {
       js: {
-        files: ['gruntfile.js', 'static/js/app/**/*.js', 'static/js/vendor/**/*.js'],
+        files: ['gruntfile.js', 'frontend/js/app/**/*.js', 'frontend/js/vendor/**/*.js'],
         tasks: ['jshint', 'uglify:dev']
       },
       css: {
