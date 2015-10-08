@@ -12,3 +12,11 @@ class NewCommentForm(forms.ModelForm):
         model = Comment
         fields  = ['content', 'username', 'thread']
 
+    def save(self, commit=True):
+        comment = super(NewThreadForm, self).save(commit=False)
+        comment.thread.save()
+        if commit:
+            comment.save()
+        return user
+
+

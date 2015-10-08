@@ -18,8 +18,8 @@
         <li ng-repeat="thread in threads | filter:query | orderBy:orderProp"
             class="thumbnail phone-listing">
           
-          <h4>{{thread.username}}</h4>
-          <p>{{phone.snippet}}</p>
+          <h4>{% verbatim %} {{ thread.title }} {% endverbatim %}</h4>
+        <p>{% verbatim %} {$ thread.username $} {% endverbatim %}</p>
         </li>
       </ul>
 

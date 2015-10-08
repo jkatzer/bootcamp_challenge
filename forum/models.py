@@ -9,10 +9,10 @@ class ForumBaseModel(TimeStampedModel):
 	username = models.CharField( _( 'username'), max_length=80 )
 	# django-extensions calls their vars created, modified. The specs asked for created_at and modified_at, so implemented as getters.
 	def created_at(self):
-		return self.created
+		return "%d-%d-%d %d:%d" % (self.created.day, self.created.month, self.created.year, self.created.hour, self.created.minute)
 
 	def modified_at(self):
-		return self.modified
+		return "%d-%d-%d %d:%d" % (self.modified.day, self.modified.month, self.modified.year, self.modified.hour, self.modified.minute)
 
 	class Meta:
 		abstract = True
