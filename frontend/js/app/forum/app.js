@@ -16,15 +16,11 @@ forumFrontEnd
   .config(['$routeProvider',
     function($routeProvider) {
       $routeProvider
-        .when('/threads', {
+        .when('/threads/', {
             templateUrl: 'static/partials/threadList.html',
             controller: 'ThreadListCtrl',
           })
-      //   when('/phones', {
-      //     templateUrl: 'partials/phone-list.html',
-      //     controller: 'PhoneListCtrl'
-      //   }).
-        .when('/threads/:threadId', {
+        .when('/threads/:threadId/', {
           templateUrl: 'partials/threadDetail.html',
           controller: 'ThreadDetailCtrl'
         })
