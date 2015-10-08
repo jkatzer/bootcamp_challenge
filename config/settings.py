@@ -43,9 +43,10 @@ INSTALLED_APPS = (
     # external apps
     'rest_framework',
     'django_extensions',
-    # my apps
-    'tools', 
-    'forum',
+    # my apps 
+    'forum_backend',
+    # toolset, including grunt tasks
+    'tools',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'bootcamp.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -77,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'bootcamp.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -112,7 +113,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'frontend'),
     os.path.join(BASE_DIR, 'node_modules'),
 )
 

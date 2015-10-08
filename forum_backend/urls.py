@@ -3,7 +3,7 @@ from django.contrib import admin
 
 from rest_framework import routers
 
-import forum.views as forum_views
+import views as forum_views
 
 
 # set up REST API framework router
