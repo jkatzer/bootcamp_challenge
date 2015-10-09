@@ -1,26 +1,8 @@
 Alex's Buzzfeed Bootcamp
 ==============================
 
-
 ## About
 This is a single page webapp with the function of an anonymous forum.
-
-## External Credits
-First time building out completely single-page frontend and managing front-end with npm and grunt. Attemping best pracices with help from: 
-https://lincolnloop.com/blog/simplifying-your-django-frontend-tasks-grunt/
-
-Using some tools taken from / inspired by Fred Diego's Django Heroku Boilerplate:
-https://github.com/fidiego/django_heroku_boilerplate/tree/master 
-
-## What's going on?
-- Config holds all settings wsgi
-- forum_backend holds application logic
-- frontend contains all front-end resources including most routing through Angular. 
-- base template is in forum_backend, partials are stored in frontend.
-- tools directory was meant to have multiple components, but currently just stores intregrated grunt django commands
-- node_moduls contains dependencies
-- using bootstrap grid with Semantic UI components
-- In order to keep all dependencies for front-end in npm, I installed semantic UI through it as well... This, however, also installed Gulp and a bunch of other things that don't really seem that necessary within the scope of this project.
 
 ## Setup
 1. Setup new virtual environment
@@ -29,3 +11,33 @@ https://github.com/fidiego/django_heroku_boilerplate/tree/master
 4. $ pip install -r requirements.txt
 5. $ npm install
 6. $ manage.py gruntserver
+
+## Peronsal Assesment
+Besides the one-liner, this was a tremendous learning experience for me. The previous projects I've built were built over more time than a week and were less complex. I had never actually used grunt, the django rest framework, implemented a real API, or built within a single-page-app-enabling front-end framework (though a few jQuery get calls here and there). In less than one week, I learned and integrated all of them. While I didn't get to implement testing (more on that below), other implementation strategies were based in some best-practices systems I saw across the web, but never copied. And I actually think my grunt tools are kind of nifty (want to expand for custom commands as well)! I'm slightly dissapointed by my speed, but can already see myself executing this kind of project much quicker in the future. Curious for your own thoughts.
+
+## External Credits
+I tried to reference sources I directly duplicated code from, however most code -even if once duplicated- has some of it's own originality.
+ 
+
+## What's going on?
+- Config holds all settings, wsgi
+- forum_backend holds API logic
+- frontend contains all front-end resources including most routing through Angular. 
+- base template is in forum_backend, partials are stored in frontend.
+- tools directory was meant to have multiple components, but currently just stores intregrated grunt django commands
+- node_moduls contains dependencies
+- using bootstrap grid with Semantic UI components
+- In order to keep all dependencies for front-end in npm, I installed semantic UI through it as well... This, however, also installed Gulp and a bunch of other things that don't really seem that necessary within the scope of this project.
+
+##The To-Do List:
+There were several items I wanted to do, but didn't get the chance. Thought they were better noted than not.
+- Front-end validation. 
+- Pagination
+- Make sure "usernames" are in username-appropriate format
+- Abstract angular methods for DRYer and more re-usable code
+- Better handling of what should be 404's. Really, just handling them.
+- Set up for production. Move settings to .env, switch to PostgreSql
+
+###Most importantly, though: tests.
+I didn't implement any test, and that is the weakest point in my engineering abilities. I had a lot to learn this week, and learning the syntax, operations, and best practices would've just been too much time. In past roles, I never had testing skills cultivated. But now, I'd like to start doing that on my own.
+

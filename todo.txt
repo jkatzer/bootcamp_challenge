@@ -1,5 +1,7 @@
 TO-DO:
 - Front-end validation. 
+- Pagination
 - Make sure "usernames" are in username format
-- Style. Maybe switch to Semantic UI?
+- Abstract angular methods for DRYer and more re-usable code
 - Better handling of what should be 404's. Really, just handling them.
+- Set up for production. Move settings to .env, switch to PostgreSql
