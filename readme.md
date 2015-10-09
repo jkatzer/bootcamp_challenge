@@ -38,6 +38,6 @@ There were several items I wanted to do, but didn't get the chance. Thought they
 - Better handling of what should be 404's. Really, just handling them.
 - Set up for production. Move settings to .env, switch to PostgreSql
 
-###Most importantly, though: tests.
-I didn't implement any test, and that is the weakest point in my engineering abilities. I had a lot to learn this week, and learning the syntax, operations, and best practices would've just been too much time. In past roles, I never had testing skills cultivated. But now, I'd like to start doing that on my own.
+####Most importantly, though: tests.
+I didn't implement any test, and that is the weakest point in my engineering abilities. I had a lot to learn this week, and learning the syntax, operations, and best practices would've just been too much time. As I grow, I'd like to focus on my ability to implement, structure, and scale good tests.
 
