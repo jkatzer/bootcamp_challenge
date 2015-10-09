@@ -12,6 +12,9 @@ class CommentSerializer(serializers.HyperlinkedModelSerializer):
 		model = Comment
 
 	def create(self, data):
+		"""
+		Comment Create method that also updates the thread model to reflect the latest comments
+		"""
 		instance = Comment.objects.create(**data)
 		instance.thread.last_comment = instance
 		instance.thread.num_replies += 1

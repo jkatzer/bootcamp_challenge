@@ -30,10 +30,10 @@
               <p>{{ thread.username }}</p>
             </div>
             <div class="col-md-6">
-            <span>Replies: {{ thread.comments.length }} </span>
+            <span>Replies: {{ thread.num_replies }} </span>
             </div>
             <div class="col-md-6">
-            <span>Last Updated: {{ thread.modified | date }}</span>
+            <div><h4>Last Updated:</h4><hr/>By {{ thread.comments[thread.comments.length-1].username }} at {{ thread.modified | date:'dd-MM-yyyy h:mma' }}</div>
             </div>
           </div>
         </li>
