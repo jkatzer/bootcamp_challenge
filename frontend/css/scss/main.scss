@@ -1,4 +1,16 @@
+.ui.form {
+	height: 250px;
+	margin-top: 20px;
+}
 
+.ui.title-bar {
+	h1 {
+		margin-bottom: 0;
+	}
+	h5 {
+		margin-top: 0;
+	}
+}
 
 .ui.comments {
 	.comment {
@@ -52,9 +64,8 @@ ul.threadlist {
 		&:hover {
 			background: #dfdfdf;
 			a h2{
-				color: #fff;
 				&:hover {
-					text-decoration: underline;
+					color: #fff;
 				}
 			}
 		}
@@ -67,11 +78,14 @@ ul.threadlist {
 			margin-bottom: -5px;
 		}
 		p.description {
-			font-style: italic;
-			font-size: 0.8em;
+			font-size: 1.1em;
+			line-height: 1.2;
 		}
 		p.username {
 			margin-left: 2px;
+			span {
+				font-weight: bold;
+			}
 		}
 		.info-spot {
 			display: inline-block;
@@ -80,6 +94,7 @@ ul.threadlist {
 			padding: 0;
 			// border-left: 1px solid #fff;
 			// border-right: 1px solid #fff;
+
 
 			&:nth-child(1n) {
 				border-right: 1px solid #ddd;
