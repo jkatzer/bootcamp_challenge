@@ -9,6 +9,7 @@
   margin-top: 0; }
 
 .ui.comments .comment {
+  background-color: #f2f2f2;
   margin: 30px;
   padding: 20px; }
   .ui.comments .comment > .avatar ~ .content {
