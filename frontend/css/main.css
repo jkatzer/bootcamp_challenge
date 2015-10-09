@@ -1,0 +1,14 @@
+ul.threadlist {
+  display: block;
+  margin: 0 auto;
+  list-style-type: none; }
+  ul.threadlist li {
+    text-align: center;
+    background: #ddd; }
+    ul.threadlist li div.center {
+      margin: 0 auto; }
+    ul.threadlist li h2 {
+      font-size: 3em;
+      margin-bottom: 5px; }
+
+/*# sourceMappingURL=main.css.map */

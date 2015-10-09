@@ -1,17 +1,36 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-2">
+      <form class="new-thread-form">
+        <fieldset>
+        <legend>Start a new thread</legend>
+          <span class="error">{{ errorMsg }}</span>
+          <div class="col-md-12">
+            <label for="title">Title</label> <input id="title-input" type="text" ng-model="threadForm.title">
+          </div>
+          <div class="col-md-12">
+            <label for="username">Username</label><input id="username-input" type="text" ng-model="threadForm.username">
+          </div>
+          <div class="col-md-12">
+            <label for="username">Description</label>
+            <input id="description-input" type="textarea" ng-model="threadForm.description">
+          </div>
+          <button ng-click="createThread(threadForm)">Post!</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="col-md-10">
       <!--Body content-->
 
       <ul class="threadlist">
         <li ng-repeat="thread in threads.results">          
           <div class="col-md-8 center row">
             <div class="col-md-12">
-              <a href="#/threads/{{ thread.slug }}"><h2>{{ thread.title }}</h2></a>
+              <a href="#/{{ thread.slug }}"><h2>{{ thread.title }}</h2></a>
               <p>{{ thread.username }}</p>
             </div>
             <div class="col-md-6">
-            <span>Replies: {{ thread.num_replies }} </span>
+            <span>Replies: {{ thread.comments.length }} </span>
             </div>
             <div class="col-md-6">
             <span>Last Updated: {{ thread.modified | date }}</span>

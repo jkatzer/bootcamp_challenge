@@ -9,6 +9,7 @@ import views as forum_views
 # set up REST API framework router
 router = routers.DefaultRouter()
 router.register(r'threads', forum_views.ThreadViewSet)
+router.register(r'comments', forum_views.CommentViewSet)
 
 
 

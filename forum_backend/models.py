@@ -51,7 +51,7 @@ class Comment(ForumBaseModel):
 	""" 
 	content = models.TextField( _('content') )
 	score = models.IntegerField( _('score'), default=0 )
-	thread = models.ForeignKey( Thread )
+	thread = models.ForeignKey( Thread, related_name='comments' )
 
 	def __str__(self):
 		time = "%d-%d-%d" % (self.created.day, self.created.month, self.created.year)

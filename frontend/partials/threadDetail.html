@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <form class="new-comment-form">
+        <fieldset>
+        <legend>Post a new comment</legend>
+          <span class="error">{{ errorMsg }}</span>
+          <div class="col-md-12">
+            <label for="username">Username</label><input id="username-input" type="text" ng-model="commentForm.username">
+          </div>
+          <div class="col-md-12">
+            <label for="username">Message</label>
+            <textarea id="description-input" type="textarea" ng-model="commentForm.content" />
+          </div>
+          <button ng-click="createComment(commentForm)">Post!</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="threadlist">
+        <li class="topic">
+          <h2>{{ thread.title }}</h2>
+          <p>- {{ thread.username }}</p>
+        </li>
+        <li ng-repeat="comment in thread.comments">          
+          <div class="col-md-8 col-md-offset-2 row">
+            <div class="col-md-12">
+              <h2>{{ comment.username }}</h2>
+              <p>{{ comment.content }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

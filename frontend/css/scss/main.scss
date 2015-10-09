@@ -1,0 +1,16 @@
+ul.threadlist {
+	display: block;
+	margin: 0 auto;
+	list-style-type: none;
+	li {
+		text-align: center;
+		background: #ddd;
+		div.center {
+			margin: 0 auto;
+		}
+		h2 {
+			font-size: 3em;
+			margin-bottom: 5px;
+		}
+	}
+}

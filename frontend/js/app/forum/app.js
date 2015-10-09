@@ -6,26 +6,33 @@ var forumFrontEnd = angular.module('forumFrontEnd', [
 ]);
 
 forumFrontEnd
-  // router
+ 
+  // Don't strip trailing slashes from calculated URLs for API Calls
   .config(['$resourceProvider', function($resourceProvider) {
-  // Don't strip trailing slashes from calculated URLs
     $resourceProvider.defaults.stripTrailingSlashes = false;
   }])
 
+  // Fix CSRF for Django (http://django-angular.readthedocs.org/en/latest/csrf-protection.html)
+  .config(['$httpProvider', function($httpProvider) {
+      $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+      $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+  }])
 
+  // router urls
   .config(['$routeProvider',
     function($routeProvider) {
+      $routeProvider.caseInsensitiveMatch = true;
       $routeProvider
-        .when('/threads/', {
+        .when('/home', {
             templateUrl: 'static/partials/threadList.html',
             controller: 'ThreadListCtrl',
           })
-        .when('/threads/:threadId/', {
-          templateUrl: 'partials/threadDetail.html',
+        .when('/:threadId', {
+          templateUrl: 'static/partials/threadDetail.html',
           controller: 'ThreadDetailCtrl'
         })
         .otherwise({
-          redirectTo: '/threads'
+          redirectTo: '/home'
         });
     }]);
   // fix bindings for django interpolation. Since django uses {{ binding }}, switch to {$ binding $}
