@@ -16,32 +16,33 @@
         </fieldset>
       </form>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10" style="margin-top: 20px;">
       <!--Body content-->
-
-      <ul class="threadlist">
-        <li class="topic">
-          <h2>{{ thread.title }}</h2>
-          <p>- {{ thread.username }}</p>
-        </li>
-        <li ng-repeat="comment in comments | orderBy: -comment.score">          
-          <div class="col-md-8 col-md-offset-2 row">
-            <div class="col-md-12">
-              <h2>{{ comment.username }}</h2>
-              <p>{{ comment.content }}</p>
-            <div class="row">
-              <div class="col-md-3">
-              <button class="glyphicon glyphicon-plus" ng-click="scorePlus(comment)"></button>
-              <button class="glyphicon glyphicon-minus" ng-click="scoreMinus(comment) "></button>
+        <div class="ui">
+          <h1>{{ thread.title }}</h1>
+          <h2>{{ thread.username }}</h2>
+          <p>{{ thread.description }}</p>
+        </div>
+      <div class="ui comments">
+        <div ng-repeat="comment in comments | orderBy: -comment.score">          
+          <div class="col-md-10 col-md-offset-1 row">
+            <div class="col-md-12 ui comment segment">
+              <div class="avatar">
+                <div class="score">{{ comment.score }}</div>
+                <i class="plus icon" ng-click="scorePlus(comment)"/>
+                <i class="minus icon" ng-click="scoreMinus(comment) "/>
               </div>
-              <div class="col-md-9">
-              karma: {{ comment.score }}
+              <div class="content">
+                <div class="author">{{ comment.username }}</div>
+                <div class="metadata">
+                  <span class="date">{{ comment.created | date: "MMM d YY" }}</span>
+                </div>
+                <div class="text">{{ comment.content }}</div>
               </div>
-            </div>
             </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
 
     </div>
   </div>

@@ -11,6 +11,12 @@ forumFrontEndControllers.controller('ThreadListCtrl', ['$scope', '$http', 'Threa
     $scope.errorMsg = '';
     $scope.threads = Thread.query();
     $scope.blankForm = {};
+
+    //nice latest poster function
+    $scope.latest_poster = function(thread){
+      return (thread.comments.length > 0 ? thread.comments[thread.comments.length-1].username : thread.username);
+    };
+
     // action to create new thread
     $scope.createThread = function(threadForm){
       // success function resets form and refreshs thread listings
@@ -38,6 +44,7 @@ forumFrontEndControllers.controller('ThreadDetailCtrl', ['$scope', '$routeParams
     // init vars
     $scope.errorMsg = '';
     $scope.comments = [];
+    $scope.commentForm = {};
     $scope.thread = {};
     // refresh mechanism
     $scope.updateThread = function(response){
@@ -46,7 +53,7 @@ forumFrontEndControllers.controller('ThreadDetailCtrl', ['$scope', '$routeParams
         // console.log('should be a new comment!');
         // console.log('response: ');
         // console.log(response);
-        $scope.comments = thread.comments;
+        $scope.comments = angular.copy(thread.comments);
       });
     };
     // init the session with above
@@ -69,9 +76,12 @@ forumFrontEndControllers.controller('ThreadDetailCtrl', ['$scope', '$routeParams
     // comment score functions
 
     // tried to get orderBy to do live re-sorting... For some reason, won't work.
-    // $scope.updateComments = function(){
-    //   $scope.comments = Thread.get({threadId: $routeParams.threadId}).comments;
-    // };
+    $scope.updateComments = function(){
+      Thread.get({threadId: $routeParams.threadId}, function(data){
+        $scope.comments = data.comments;
+        $scope.$apply();
+      });
+    };
 
     // add one to comment's score
     $scope.scorePlus = function(comment){
@@ -85,7 +95,7 @@ forumFrontEndControllers.controller('ThreadDetailCtrl', ['$scope', '$routeParams
       var payload = angular.copy(comment);
       payload.score += 1;
       // update comment score with API call, then reflect changes in local model without whole refresh
-      $http.put(comment.url, payload).then( function(){ comment.score += 1; }, updateFail);
+      $http.put(comment.url, payload).then( function(){ comment.score += 1; $scope.updateComments(); }, updateFail);
     }; 
     // subtract one from comment's score
     $scope.scoreMinus = function(comment){
@@ -99,7 +109,7 @@ forumFrontEndControllers.controller('ThreadDetailCtrl', ['$scope', '$routeParams
       var payload = angular.copy(comment);
       payload.score -= 1;
       // update comment score with API call, then reflect changes in local model without whole refresh
-      $http.put(comment.url, payload).then( function(){ comment.score -= 1;  }, updateFail);
+      $http.put(comment.url, payload).then( function(){ comment.score -= 1; $scope.updateComments(); }, updateFail);
     };
 
 

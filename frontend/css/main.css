@@ -1,42 +1,79 @@
+.ui.comments .comment {
+  margin: 30px;
+  padding: 20px; }
+  .ui.comments .comment > .avatar ~ .content {
+    margin-left: 0;
+    margin-top: 1em; }
+  .ui.comments .comment .avatar {
+    float: right;
+    text-align: center;
+    margin-top: 1em; }
+    .ui.comments .comment .avatar .score {
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 100%;
+      background: #dfdfdf; }
+    .ui.comments .comment .avatar i {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.2em; }
+      .ui.comments .comment .avatar i:hover {
+        color: #dfdfdf; }
+  .ui.comments .comment .metadata {
+    margin-left: 0; }
+
 ul.threadlist {
   display: block;
-  margin: 0 auto;
-  list-style-type: none; }
+  margin: 50px auto;
+  list-style-type: none;
+  margin-bottom: 100px; }
   ul.threadlist li.thread {
-    box-sizing: border-box;
     height: 150px;
     max-height: 20%;
     text-align: left;
-    background: #ddd;
+    background: #f3f3f3;
     margin: 10px;
     position: relative;
     padding-right: 0; }
+    ul.threadlist li.thread:hover {
+      background: #dfdfdf; }
+      ul.threadlist li.thread:hover a h2 {
+        color: #fff; }
+        ul.threadlist li.thread:hover a h2:hover {
+          text-decoration: underline; }
     ul.threadlist li.thread div.center {
       margin: 0 auto; }
     ul.threadlist li.thread h2 {
       font-size: 3em;
-      margin-bottom: 5px; }
+      margin-bottom: -5px; }
+    ul.threadlist li.thread p.description {
+      font-style: italic;
+      font-size: 0.8em; }
+    ul.threadlist li.thread p.username {
+      margin-left: 2px; }
     ul.threadlist li.thread .info-spot {
       display: inline-block;
       height: 100%;
       position: relative;
-      padding: 0;
-      border-left: 1px solid #fff;
-      border-right: 1px solid #fff; }
+      padding: 0; }
+      ul.threadlist li.thread .info-spot:nth-child(1n) {
+        border-right: 1px solid #ddd; }
       ul.threadlist li.thread .info-spot h4 {
-        position: relative;
-        height: 50%;
-        padding-top: 22%;
-        border-bottom: 1px solid #fff;
+        position: absolute;
+        bottom: 50%;
         vertical-align: middle;
         text-align: center;
-        margin: 0; }
+        margin: 0;
+        box-sizing: border-box;
+        width: 100%;
+        margin-right: 10px; }
       ul.threadlist li.thread .info-spot span {
+        box-sizing: border-box;
+        width: 100%;
+        margin-right: 10px;
         display: block;
-        height: 50%;
-        padding-top: 16%;
+        position: absolute;
+        top: 50%;
         text-align: center; }
-      ul.threadlist li.thread .info-spot.time span {
-        padding-top: 11.25%; }
 
 /*# sourceMappingURL=main.css.map */

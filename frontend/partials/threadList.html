@@ -23,16 +23,17 @@
       <!--Body content-->
 
       <ul class="threadlist">
-        <li ng-repeat="thread in threads.results | orderBy: thread.modified | orderBy: thread.num_replies" class="thread col-md-12 center row">          
-            <div class="col-md-8">
+        <li ng-repeat="thread in threads.results | orderBy: thread.modified | orderBy: thread.num_replies" class="thread col-md-12 center row ui raised segment">          
+            <div class="col-md-7">
               <a href="#/{{ thread.slug }}"><h2>{{ thread.title }}</h2></a>
-              <p>by {{ thread.username }}</p>
+              <p class="username">by {{ thread.username }}</p>
+              <p class="description">{{ thread.description }}</p>
             </div>
             <div class="col-md-2 info-spot">
             <h4>Replies:</h4><span>{{ thread.num_replies }}</span>
             </div>
-            <div class="col-md-2 info-spot time">
-            <h4>Last Updated:</h4><span>By {{ thread.comments[thread.comments.length-1].username }} at {{ thread.modified | date:'dd-MM-yyyy h:mma' }}<span>
+            <div class="col-md-3 info-spot time">
+            <h4>Last Updated:</h4><span>By {{ latest_poster(thread) }} <br/>at {{ thread.modified | date:'h:mma dd-MM-yyyy' }}<span>
             </div>
         </li>
       </ul>

@@ -1,49 +1,112 @@
+
+
+.ui.comments {
+	.comment {
+		//box-sizing: border-box;
+		margin: 30px;
+		padding: 20px;
+		& >.avatar~.content {
+			margin-left: 0;
+			margin-top: 1em;
+		}
+		.avatar {
+			float: right;
+			text-align: center;
+			margin-top: 1em;
+			.score {
+				font-size: 1.2em;
+				font-weight: bold;
+				border-radius: 100%;
+				background: #dfdfdf;
+			}
+			i {
+				cursor: pointer;
+				display: inline-block;
+				font-size: 1.2em;
+				&:hover {
+					color: #dfdfdf;
+				}
+			}
+		}
+		.metadata {
+			margin-left: 0;
+		}
+	}
+}
+
 ul.threadlist {
 	display: block;
-	margin: 0 auto;
+	margin: 50px auto;
 	list-style-type: none;
+	margin-bottom: 100px;
 	li.thread {
-		box-sizing: border-box;
+		//box-sizing: border-box;
 		height: 150px;
 		max-height: 20%;
 		text-align: left;
-		background: #ddd;
+		background: #f3f3f3;
 		margin: 10px;
 		position: relative;
 		padding-right: 0;
+
+		&:hover {
+			background: #dfdfdf;
+			a h2{
+				color: #fff;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
 		div.center {
 			margin: 0 auto;
 		}
 		h2 {
 			font-size: 3em;
-			margin-bottom: 5px;
+			margin-bottom: -5px;
+		}
+		p.description {
+			font-style: italic;
+			font-size: 0.8em;
+		}
+		p.username {
+			margin-left: 2px;
 		}
 		.info-spot {
 			display: inline-block;
 			height: 100%;
 			position: relative;
 			padding: 0;
-			border-left: 1px solid #fff;
-			border-right: 1px solid #fff;
+			// border-left: 1px solid #fff;
+			// border-right: 1px solid #fff;
 
+			&:nth-child(1n) {
+				border-right: 1px solid #ddd;
+			}
 			h4 {
-				position: relative;
-				height: 50%;
-				padding-top: 22%;
+				position: absolute;
+				bottom: 50%;
+				//padding-top: 22%;
 				//border: 2px solid #000;
-				border-bottom: 1px solid #fff;
+				//border-bottom: 1px solid #fff;
 				vertical-align: middle;
 				text-align: center;
 				margin: 0;
+				box-sizing: border-box;
+				width: 100%;
+				//margin-left: 10px;
+				margin-right: 10px;
 			}
 			span {
+				box-sizing: border-box;
+				width: 100%;
+				//margin-left: 10px;
+				margin-right: 10px;
 				display: block;
-				height: 50%;
-				padding-top: 16%;
+				position: absolute;
+				top: 50%;
 				text-align: center;
-			}
-			&.time span {
-				padding-top: 11.25%;
 			}
 		}
 	}
