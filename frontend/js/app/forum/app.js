@@ -2,10 +2,10 @@ var forumFrontEnd = angular.module('forumFrontEnd', [
   'ngRoute',
   'forumFrontEndControllers',
   'forumFrontEndServices',
-  'forumFrontEndFilters'
 
 ]);
 
+// the main module, preparing for configuration
 forumFrontEnd
  
   // Don't strip trailing slashes from calculated URLs for API Calls
@@ -23,16 +23,20 @@ forumFrontEnd
   // router urls
   .config(['$routeProvider',
     function($routeProvider) {
+      // just in case, case shouldn't make a difference
       $routeProvider.caseInsensitiveMatch = true;
       $routeProvider
+        // home page route
         .when('/home', {
             templateUrl: 'static/partials/threadList.html',
             controller: 'ThreadListCtrl',
           })
+        // thread view route
         .when('/:threadId', {
           templateUrl: 'static/partials/threadDetail.html',
           controller: 'ThreadDetailCtrl'
         })
+        // default route.  TODO: 404 route
         .otherwise({
           redirectTo: '/home'
         });

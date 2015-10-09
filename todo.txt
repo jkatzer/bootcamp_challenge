@@ -1,5 +1,5 @@
 TO-DO:
-- Add unique identities to each comment. A person should be allowed to troll and write the same thing again and again
 - Front-end validation. 
 - Make sure "usernames" are in username format
 - Style. Maybe switch to Semantic UI?
+- Better handling of what should be 404's. Really, just handling them.
