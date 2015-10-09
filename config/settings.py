@@ -30,7 +30,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+######################################################################
+## Application definition
+######################################################################
 
 INSTALLED_APPS = (
     # django components
@@ -49,6 +51,7 @@ INSTALLED_APPS = (
     'tools',
 )
 
+# Middleware is happening in the middle of every process: things like session management, authentication, etc. ALways available to call (with import)
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -60,8 +63,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
+# rool URL configuration. from here we tell the app about the admin, other services, and redirect everything else to the forum urlconf.
 ROOT_URLCONF = 'config.urls'
 
+
+# templates, don't have that much to say here. 
+# If you want to change the way templating works (folder-wise), simply add to the DIRS directory, and turn off the APP_DIRS boolean.
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -78,11 +85,18 @@ TEMPLATES = [
     },
 ]
 
+
+########################################################################
+## WSGI 
+## https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
+########################################################################
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+##################################################################
+## Database Config 
+## https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+##################################################################
 
 DATABASES = {
     'default': {
@@ -92,9 +106,11 @@ DATABASES = {
 }
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.8/topics/i18n/
-
+###################################################################
+## Time, Internationalization Settings
+## (Defaults, I didnt mess with this at all)
+## https://docs.djangoproject.com/en/1.8/topics/i18n/
+###################################################################
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -105,22 +121,21 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+####################################################################
+## Static File (CSS, JavaScript, Images) and Uploaded Media Settings (S3 or Local)
+## https://docs.djangoproject.com/en/1.8/howto/static-files/
+####################################################################
 
 # give static assets a /static/item url
 STATIC_URL = '/static/'
 
+# add node_modules and frontend directories to Django's directories to query for files
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend'),
     os.path.join(BASE_DIR, 'node_modules'),
 )
 
-
-
 ## Rest Framework settings
 REST_FRAMEWORK = {
-    #'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
     'PAGE_SIZE': 10
 }

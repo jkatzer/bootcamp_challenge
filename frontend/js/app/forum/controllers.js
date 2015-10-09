@@ -58,6 +58,13 @@ forumFrontEndControllers.controller('ThreadDetailCtrl', ['$scope', '$routeParams
     };
     // init the session with above
     $scope.updateThread();
+    // mechanism to refresh only comments
+    $scope.updateComments = function(){
+      Thread.get({threadId: $routeParams.threadId}, function(data){
+        $scope.comments = data.comments;
+        $scope.$apply();
+      });
+    };
     // action to post new new comment
     $scope.createComment = function(commentForm){
       // get url (rest api's pk to interact with thread)
@@ -69,20 +76,11 @@ forumFrontEndControllers.controller('ThreadDetailCtrl', ['$scope', '$routeParams
         console.log(response);
       };
       // attempt to create comment loaded with values from the comment form
-      $http.post('api/comments/', commentForm).then($scope.updateThread, commentFail);
+      $http.post('api/comments/', commentForm).then(function(){ $scope.commentForm = {}; $scope.updateComments(); }, commentFail);
     };
 
 
     // comment score functions
-
-    // tried to get orderBy to do live re-sorting... For some reason, won't work.
-    $scope.updateComments = function(){
-      Thread.get({threadId: $routeParams.threadId}, function(data){
-        $scope.comments = data.comments;
-        $scope.$apply();
-      });
-    };
-
     // add one to comment's score
     $scope.scorePlus = function(comment){
       // fail function. TODO: refactor

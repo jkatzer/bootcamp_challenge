@@ -54,6 +54,18 @@ class Comment(ForumBaseModel):
 	thread = models.ForeignKey( Thread, related_name='comments' )
 
 	def __str__(self):
+		"""
+		__str__ sets the human-readable formatting for models when dealing
+		through admin interfaces (shell, django admin, etc.)
+		"""
+		time = "%d-%d-%d" % (self.created.day, self.created.month, self.created.year)
+		return "%s %s | score: %d" % (self.username, time, self.score) 
+
+	def __unicode__(self):
+		"""
+		Python 2.x has weird things with strings and unicode. Best to do this from what
+		I understand.
+		"""
 		time = "%d-%d-%d" % (self.created.day, self.created.month, self.created.year)
 		return "%s %s | score: %d" % (self.username, time, self.score) 
 

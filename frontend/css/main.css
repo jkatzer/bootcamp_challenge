@@ -53,7 +53,8 @@ ul.threadlist {
       margin: 0 auto; }
     ul.threadlist li.thread h2 {
       font-size: 3em;
-      margin-bottom: -5px; }
+      line-height: 0.8;
+      margin-bottom: 5px; }
     ul.threadlist li.thread p.description {
       font-size: 1.1em;
       line-height: 1.2; }
