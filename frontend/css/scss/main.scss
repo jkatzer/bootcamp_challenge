@@ -2,15 +2,49 @@ ul.threadlist {
 	display: block;
 	margin: 0 auto;
 	list-style-type: none;
-	li {
-		text-align: center;
+	li.thread {
+		box-sizing: border-box;
+		height: 150px;
+		max-height: 20%;
+		text-align: left;
 		background: #ddd;
+		margin: 10px;
+		position: relative;
+		padding-right: 0;
 		div.center {
 			margin: 0 auto;
 		}
 		h2 {
 			font-size: 3em;
 			margin-bottom: 5px;
+		}
+		.info-spot {
+			display: inline-block;
+			height: 100%;
+			position: relative;
+			padding: 0;
+			border-left: 1px solid #fff;
+			border-right: 1px solid #fff;
+
+			h4 {
+				position: relative;
+				height: 50%;
+				padding-top: 22%;
+				//border: 2px solid #000;
+				border-bottom: 1px solid #fff;
+				vertical-align: middle;
+				text-align: center;
+				margin: 0;
+			}
+			span {
+				display: block;
+				height: 50%;
+				padding-top: 16%;
+				text-align: center;
+			}
+			&.time span {
+				padding-top: 11.25%;
+			}
 		}
 	}
 }

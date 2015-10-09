@@ -24,11 +24,20 @@
           <h2>{{ thread.title }}</h2>
           <p>- {{ thread.username }}</p>
         </li>
-        <li ng-repeat="comment in thread.comments">          
+        <li ng-repeat="comment in comments | orderBy: -comment.score">          
           <div class="col-md-8 col-md-offset-2 row">
             <div class="col-md-12">
               <h2>{{ comment.username }}</h2>
               <p>{{ comment.content }}</p>
+            <div class="row">
+              <div class="col-md-3">
+              <button class="glyphicon glyphicon-plus" ng-click="scorePlus(comment)"></button>
+              <button class="glyphicon glyphicon-minus" ng-click="scoreMinus(comment) "></button>
+              </div>
+              <div class="col-md-9">
+              karma: {{ comment.score }}
+              </div>
+            </div>
             </div>
           </div>
         </li>

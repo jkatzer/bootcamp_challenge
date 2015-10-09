@@ -2,6 +2,7 @@ var forumFrontEnd = angular.module('forumFrontEnd', [
   'ngRoute',
   'forumFrontEndControllers',
   'forumFrontEndServices',
+  'forumFrontEndFilters'
 
 ]);
 
@@ -17,6 +18,7 @@ forumFrontEnd
       $httpProvider.defaults.xsrfCookieName = 'csrftoken';
       $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
   }])
+
 
   // router urls
   .config(['$routeProvider',
@@ -35,8 +37,3 @@ forumFrontEnd
           redirectTo: '/home'
         });
     }]);
-  // fix bindings for django interpolation. Since django uses {{ binding }}, switch to {$ binding $}
-  // .config(function($interpolateProvider) {
-  //   $interpolateProvider.startSymbol('{$');
-  //   $interpolateProvider.endSymbol('$}');
-  // });

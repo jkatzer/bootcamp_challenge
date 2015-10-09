@@ -2,13 +2,41 @@ ul.threadlist {
   display: block;
   margin: 0 auto;
   list-style-type: none; }
-  ul.threadlist li {
-    text-align: center;
-    background: #ddd; }
-    ul.threadlist li div.center {
+  ul.threadlist li.thread {
+    box-sizing: border-box;
+    height: 150px;
+    max-height: 20%;
+    text-align: left;
+    background: #ddd;
+    margin: 10px;
+    position: relative;
+    padding-right: 0; }
+    ul.threadlist li.thread div.center {
       margin: 0 auto; }
-    ul.threadlist li h2 {
+    ul.threadlist li.thread h2 {
       font-size: 3em;
       margin-bottom: 5px; }
+    ul.threadlist li.thread .info-spot {
+      display: inline-block;
+      height: 100%;
+      position: relative;
+      padding: 0;
+      border-left: 1px solid #fff;
+      border-right: 1px solid #fff; }
+      ul.threadlist li.thread .info-spot h4 {
+        position: relative;
+        height: 50%;
+        padding-top: 22%;
+        border-bottom: 1px solid #fff;
+        vertical-align: middle;
+        text-align: center;
+        margin: 0; }
+      ul.threadlist li.thread .info-spot span {
+        display: block;
+        height: 50%;
+        padding-top: 16%;
+        text-align: center; }
+      ul.threadlist li.thread .info-spot.time span {
+        padding-top: 11.25%; }
 
 /*# sourceMappingURL=main.css.map */

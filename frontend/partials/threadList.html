@@ -19,23 +19,21 @@
         </fieldset>
       </form>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-8">
       <!--Body content-->
 
       <ul class="threadlist">
-        <li ng-repeat="thread in threads.results">          
-          <div class="col-md-8 center row">
-            <div class="col-md-12">
+        <li ng-repeat="thread in threads.results | orderBy: thread.modified | orderBy: thread.num_replies" class="thread col-md-12 center row">          
+            <div class="col-md-8">
               <a href="#/{{ thread.slug }}"><h2>{{ thread.title }}</h2></a>
-              <p>{{ thread.username }}</p>
+              <p>by {{ thread.username }}</p>
             </div>
-            <div class="col-md-6">
-            <span>Replies: {{ thread.num_replies }} </span>
+            <div class="col-md-2 info-spot">
+            <h4>Replies:</h4><span>{{ thread.num_replies }}</span>
             </div>
-            <div class="col-md-6">
-            <div><h4>Last Updated:</h4><hr/>By {{ thread.comments[thread.comments.length-1].username }} at {{ thread.modified | date:'dd-MM-yyyy h:mma' }}</div>
+            <div class="col-md-2 info-spot time">
+            <h4>Last Updated:</h4><span>By {{ thread.comments[thread.comments.length-1].username }} at {{ thread.modified | date:'dd-MM-yyyy h:mma' }}<span>
             </div>
-          </div>
         </li>
       </ul>
 
