@@ -10,10 +10,12 @@ This is a single page anonymous-user forum webapp. It was built with Django, Dja
 3. clone repo, cd repo
 4. $ pip install -r requirements.txt
 5. $ npm install (semantic UI will have a weird prompt. just throw it into node_modules)
-6. $ manage.py gruntserver
+6. run the server 
+ - for dev: $ manage.py gruntserver
+ - for reg: $ manage.py runserver
 
 ## Peronsal Assesment
-This was a tremendous learning experience for me. The previous projects I've built were built over more time than a week and were less complex. I had never actually used npm (or any package manager), grunt (or any comprehensive task manager), the django rest framework, implemented a real API, or built with a single-page-app-enabling front-end framework (though a few jQuery get calls here and there). In less than one week, I learned and integrated all of them. While I didn't get to implement testing (more on that below), other implementation strategies were based in some best-practices systems I saw across the web, but never copied. And I actually think my grunt tools are kind of nifty (want to expand for custom commands as well)! I'm slightly dissapointed by my speed, but can already see myself executing this kind of project much quicker in the future. Curious for others' input.
+This was a tremendous learning experience for me. The previous projects I've built were built over more time than a week and were less complex. I had never actually used npm (or any package manager), grunt (or any comprehensive task manager), the django rest framework, implemented a real API, or built with a single-page-app-enabling front-end framework (though a few jQuery get calls here and there). In less than a week, I was able to learne and integrate all of them in some fashion. While I didn't get to implement testing (more on that below), other implementation strategies were based in some best-practices systems I saw across the web, but never copied. And I actually think my grunt tools are kind of nifty (want to expand for custom commands as well)! I'm slightly dissapointed by my speed, but can already see myself executing this kind of project much quicker in the future. Curious for others' input.
 
 ## External Credits
 I tried to reference sources I directly duplicated code from, however most code -even if once duplicated- has some of it's own originality.
